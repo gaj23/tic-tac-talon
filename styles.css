@@ -1,14 +1,57 @@
 * {
   border: 1px solid purple;
+  box-sizing: border-box;
 }
 
 body {
   display: flex;
   justify-content: space-between;
+  height: 100vh;
+  width: 100vw;
 }
 
 main {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
   flex-grow: 2;
+}
+
+.game-board {
+  height: 70%;
+  width: 70%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.board-rows {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
+.square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: .5em;
+  height: 10em;
+  width: 10em;
+}
+
+.board-image {
+  width: 95%;
+}
+
+.eagle-display,
+.turkey-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .eagle-display {
@@ -17,4 +60,23 @@ main {
 
 .turkey-display {
   order: -1;
+}
+
+.main-player-image {
+  margin: auto 4em;
+  padding-top: 2em;
+  height: 12em;
+  width: 12em;
+}
+
+.score {
+  margin: 0 auto;
+  padding: 0 2em;
+}
+
+.score>h2,
+.score>h3 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
