@@ -8,58 +8,61 @@
 </head>
 
 <body>
-  <h1>Who's Turn is is Anyway?</h1>
-
-  <section class="user-interaction">
+  <main>
+    <header>
+      <h1>Who's Turn is it Anyways?</h1>
+    </header>
     <section class="game-board">
       <!-- board -->
       <!-- one for each square on tha board -->
       <!-- will be filled in with innerHTML? -->
-      <article class="square" id="one">
-        <h2>1</h2>
-      </article>
-      <article class="square" id="two">
-        <h2>2</h2>
-      </article>
-      <article class="square" id="three">
-        <h2>3</h2>
-      </article>
-      <article class="square" id="four">
-        <h2>4</h2>
-      </article>
-      <article class="square" id="five">
-        <h2>5</h2>
-      </article>
-      <article class="square" id="six">
-        <h2>6</h2>
-      </article>
-      <article class="square" id="seven">
-        <h2>7</h2>
-      </article>
-      <article class="square" id="eight">
-        <h2>8</h2>
-      </article>
-      <article class="square" id="nine">
-        <h2>9</h2>
-      </article>
+      <section class="board-rows">
+        <article class="square" id="one">
+          <img src="assets/turkey.png" alt="turkey cartoon" class="board-image">
+        </article>
+        <article class="square" id="two">
+          2
+        </article>
+        <article class="square" id="three">
+          3
+        </article>
+      </section>
+      <section class="board-rows">
+        <article class="square" id="four">
+          4
+        </article>
+        <article class="square" id="five">
+          5
+        </article>
+        <article class="square" id="six">
+          6
+        </article>
+      </section>
+      <section class="board-rows">
+        <article class="square" id="seven">
+          7
+        </article>
+        <article class="square" id="eight">
+          8
+        </article>
+        <article class="square" id="nine">
+          9
+        </article>
+      </section>
     </section>
     <button type="button" name="button">⚠️Restart⚠️</button>
-  </section>
+  </main>
 
-  <section>
-    <div class="image">
-      <img src="assets/turkey.png" alt="turkey cartoon">
-    </div>
+  <section class="turkey-display">
+    <div><img src="assets/turkey.png" alt="turkey cartoon" class="main-player-image"></div>
     <article class="score">
       <h2>Score</h2>
       <h3 class="turkey-score">0</h3>
     </article>
   </section>
 
-  <section>
-    <div class="image">
-      <img src="assets/bald-eagle.png" alt="bald eagle cartoon">
-    </div>
+  <section class="eagle-display">
+    <div><img src="assets/bald-eagle.png" alt="bald eagle cartoon" class="main-player-image"></div>
     <article class="score">
       <h2>Score</h2>
       <h3 class="eagle-score">0</h3>
