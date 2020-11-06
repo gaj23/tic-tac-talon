@@ -1,0 +1,20 @@
+* {
+  border: 1px solid purple;
+}
+
+body {
+  display: flex;
+  justify-content: space-between;
+}
+
+main {
+  flex-grow: 2;
+}
+
+.eagle-display {
+  order: 3;
+}
+
+.turkey-display {
+  order: -1;
+}
