@@ -3,29 +3,42 @@ var game = new Game();
 
 var gameboard = document.querySelector('.gameboard');
 var restartButton = document.querySelector('button');
-var header = document.querySelector('#player-turn')
+var header = document.querySelector('#player-turn');
 
 gameboard.addEventListener('click', manageGamePlay);
 restartButton.addEventListener('click', restartGame);
 
 function manageGamePlay(event) {
-  var square = event.target
+  game.determineTurn();
+  var square = event.target;
   if (square.innerHTML !== '') {
     for (var i = 0; i < game.squareIDs.length; i++) {
-      if (square.id === game.squareIDs[i] && header.innerText.includes('Turkey')) {
-        square.innerHTML = `<img src=${game.player1.imageSrc} alt=${game.player1.alt} class="board-image" id=${game.player1.id}>`
-        game.determineTurn();
-      } else {
-        game.determineTurn();
+      if (square.id === game.squareIDs[i]) {
+        toggleToken(square);
+        toggleHeader();
       }
     }
-
   }
 }
 
-function toggleToken() {}
+//can I refactor by passing in parameters instead? aka currentPlayer?
+function toggleHeader() {
+  if (header.innerText.includes('Turkey')) {
+    header.innerText = "Bald Eagle's turn";
+  } else {
+    header.innerText = "Turkey's Turn";
+  }
+}
 
-//why is my image not toggling?
+//Can I refactor using parameters/passing in game.currentPlayer? & interpolating the src, alt, and id?
+function toggleToken(square) {
+  if (game.playCount === 0) {
+    square.innerHTML = '<img src="assets/bald-eagle.png" alt="bald eagle cartoon" class="board-image" id="player-eagle">';
+  } else {
+    square.innerHTML = '<img src="assets/turkey.png" alt="turkey cartoon" class="board-image" id="player-turkey">';
+  }
+}
+
 
 
 
