@@ -11,6 +11,8 @@ class Game {
       alt: 'bald eagle cartoon'
     });
     this.squareIDs = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+    this.playCount = 0;
+    this.currentPlayer;
   }
 
   updateStoredScore() {
@@ -22,13 +24,12 @@ class Game {
   }
 
   determineTurn() {
-
-    if (header.innerText.includes('Turkey')) {
-      header.innerText = "Bald Eagle's turn";
-
+    if (this.playCount === 0) {
+      this.currentPlayer = this.player2;
+      this.playCount += 1;
     } else {
-      header.innerText = "Turkey's Turn"
-
+      this.currentPlayer = this.player1;
+      this.playCount = 0;
     }
   }
 
