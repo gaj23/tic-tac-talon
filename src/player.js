@@ -1,7 +1,8 @@
 class Player {
-  constructor(id, imageSrc) {
-    this.id = id;
-    this.image = imageSrc;
+  constructor(playerObj) {
+    this.imageSrc = playerObj.imageSrc;
+    this.id = playerObj.id;
+    this.alt = playerObj.alt;
     this.wins = 0;
   }
   saveWinsToStorage() {
