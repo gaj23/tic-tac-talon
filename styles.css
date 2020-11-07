@@ -53,18 +53,23 @@ h1 {
   background-color: #808080;
 }
 
-#two,
-#eight {
+.disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.two,
+.eight {
   border-left: .2em solid #000000;
   border-right: .2em solid #000000;
 }
 
-#five {
+.five {
   border: .2em solid #000000;
 }
 
-#four,
-#six {
+.four,
+.six {
   border-top: .2em solid #000000;
   border-bottom: .2em solid #000000;
 }
