@@ -3,12 +3,14 @@ class Game {
     this.player1 = new Player({
       imageSrc: 'assets/turkey.png',
       id: 'turkey',
-      alt: 'turkey cartoon'
+      alt: 'turkey cartoon',
+      header: 'Turkey'
     });
     this.player2 = new Player({
       imageSrc: 'assets/bald-eagle.png',
       id: 'bald-eagle',
-      alt: 'bald eagle cartoon'
+      alt: 'bald eagle cartoon',
+      header: 'Bald Eagle'
     });
     this.squareIDs = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
     this.playCount = 0;
