@@ -12,7 +12,7 @@ class Game {
     });
     this.squareIDs = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
     this.playCount = 0;
-    this.currentPlayer;
+    this.currentPlayer = this.player1;
   }
 
   updateStoredScore() {
@@ -27,7 +27,7 @@ class Game {
     if (this.playCount === 0) {
       this.currentPlayer = this.player2;
       this.playCount += 1;
-    } else {
+    } else if (this.playCount === 1) {
       this.currentPlayer = this.player1;
       this.playCount = 0;
     }
