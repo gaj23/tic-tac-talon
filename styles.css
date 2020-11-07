@@ -23,7 +23,7 @@ h1 {
   font-size: 3em;
 }
 
-.game-board {
+.gameboard {
   display: flex;
   flex-flow: column;
   justify-content: center;
