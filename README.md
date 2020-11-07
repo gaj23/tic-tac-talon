@@ -1,6 +1,6 @@
-# Bird-is-the-Word Tic-Tac-Toe
+# Tic-Tac-Talon
 
-Did you know that Benjamin Franklin originally proposed the United States' national bird to be a turkey? Now is your chance to pit the Turkey and the Bald Eagle against each other in an interactive game of tic-tac-toe!
+Did you know that Benjamin Franklin originally proposed the United States' national bird to be the turkey? Now is your chance to pit the Turkey and the Bald Eagle against each other in an interactive game of tic-tac-toe!
 
 This project is a culmination of learning goals in module 1 at Turing School of Software & Design. The main points are to demonstrate my understanding of:
 - local storage so scores may persist upon refresh
@@ -9,8 +9,8 @@ This project is a culmination of learning goals in module 1 at Turing School of 
 - keeping the DOM and the data separate
 
 ## To View
-To view and interact with this application please clone down and view from your local path. 
-To clone, please copy and paste the following into your terminal: `git clone git@github.com:gaj23/bird-is-the-word.git`. 
+To view and interact with this application please clone down and view from your local path.
+To clone, please copy and paste the following into your terminal: `git clone git@github.com:gaj23/bird-is-the-word.git`.
 No other software is necessary. Please check if your preferred browser is up to date to provide as smooth as possible interactions.
 
 Screen shot & explanation here.  
