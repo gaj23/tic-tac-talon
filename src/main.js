@@ -13,13 +13,11 @@ function manageGamePlay(event) {
 }
 
 function manageSquares(square) {
-  console.log('current player', game.currentPlayer)
   for (var i = 0; i < game.squareIDs.length; i++) {
     if (square.id === game.squareIDs[i]) {
       toggleToken(square);
       game.determineTurn();
       square.classList.add('disabled');
-      console.log('current player', game.currentPlayer)
     }
   }
 }
