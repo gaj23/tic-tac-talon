@@ -1,7 +1,16 @@
 class Game {
-  constructor(player1, player2) {
-    this.player1 = new Player(player1);
-    this.player2 = new Player(player2);
+  constructor() {
+    this.player1 = new Player({
+      imageSrc: 'assets/turkey.png',
+      id: 'turkey',
+      alt: 'turkey cartoon'
+    });
+    this.player2 = new Player({
+      imageSrc: 'assets/bald-eagle.png',
+      id: 'bald-eagle',
+      alt: 'bald eagle cartoon'
+    });
+    this.squareIDs = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
   }
 
   updateStoredScore() {
@@ -13,7 +22,14 @@ class Game {
   }
 
   determineTurn() {
-    // A way to keep track of which player’s turn it currently is
+
+    if (header.innerText.includes('Turkey')) {
+      header.innerText = "Bald Eagle's turn";
+
+    } else {
+      header.innerText = "Turkey's Turn"
+
+    }
   }
 
   checkBoard() {
@@ -24,10 +40,6 @@ class Game {
   clearBoard() {
     // A way to reset the Game’s board to begin a new game
     //use timeout here?
-  }
-
-  restartGame() {
-    //should this be here?
   }
 
 }
