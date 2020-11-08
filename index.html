@@ -11,39 +11,39 @@
 <body>
   <main>
     <header>
-      <h1 class="click-to-start">Turkey's Turn!</h1>
+      <h1 id="player-turn">Turkey Starts!</h1>
     </header>
-    <section class="game-board">
-      <section class="board-rows">
-        <article class="square" id="one">
+    <section class="gameboard">
+      <div class="board-rows">
+        <article class="square one" id="one">
         </article>
-        <article class="square" id="two">
+        <article class="square two" id="two">
         </article>
-        <article class="square" id="three">
+        <article class="square three" id="three">
         </article>
-      </section>
-      <section class="board-rows">
-        <article class="square" id="four">
+      </div>
+      <div class="board-rows">
+        <article class="square four" id="four">
         </article>
-        <article class="square" id="five">
+        <article class="square five" id="five">
         </article>
-        <article class="square" id="six">
+        <article class="square six" id="six">
         </article>
-      </section>
-      <section class="board-rows">
-        <article class="square" id="seven">
+      </div>
+      <div class="board-rows">
+        <article class="square seven" id="seven">
         </article>
-        <article class="square" id="eight">
+        <article class="square eight" id="eight">
         </article>
-        <article class="square" id="nine">
+        <article class="square nine" id="nine">
         </article>
-      </section>
+      </div>
     </section>
     <button type="button" name="button">⚠️ Restart ⚠️</button>
   </main>
 
   <section class="turkey-display">
-    <div><img src="assets/turkey.png" alt="turkey cartoon" class="main-player-image"></div>
+    <div><img src="assets/turkey.png" alt="turkey cartoon" class="main-player-image" id="turkey"></div>
     <article class="score">
       <h2>Score</h2>
       <h3 class="turkey-score">0</h3>
@@ -51,7 +51,7 @@
   </section>
 
   <section class="eagle-display">
-    <div><img src="assets/bald-eagle.png" alt="bald eagle cartoon" class="main-player-image"></div>
+    <div><img src="assets/bald-eagle.png" alt="bald eagle cartoon" class="main-player-image" id="bald-eagle"></div>
     <article class="score">
       <h2>Score</h2>
       <h3 class="eagle-score">0</h3>
@@ -59,8 +59,13 @@
   </section>
 
 </body>
+<script src="src/player.js" type="text/javascript"></script>
+<script src="src/game.js" type="text/javascript"></script>
+<script src="src/main.js" type="text/javascript"></script>
 
 </html>
 
 
-<!-- <img src="assets/turkey.png" alt="turkey cartoon" class="board-image"> -->
+<!-- <img src="assets/turkey.png" alt="turkey cartoon" class="board-image" id="player-turkey"> -->
+
+<!-- <img src="assets/bald-eagle.png" alt="bald eagle cartoon" class="board-image" id="player-eagle"> -->
