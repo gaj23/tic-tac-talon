@@ -32,8 +32,8 @@ function toggleToken(square) {
 
 function checkWinStatus() {
   checkHorizontal();
-  // checkVertical();
-  // checkDiagonal();
+  checkVertical();
+  checkDiagonal();
 }
 
 function checkHorizontal() {
@@ -60,6 +60,44 @@ function checkHorizontal() {
   //why can't I put the getElementById in the checkWinStatus?
 }
 
+function checkVertical() {
+  var sq1 = document.getElementById('one');
+  var sq2 = document.getElementById('two');
+  var sq3 = document.getElementById('three');
+  var sq4 = document.getElementById('four')
+  var sq5 = document.getElementById('five')
+  var sq6 = document.getElementById('six')
+  var sq7 = document.getElementById('seven')
+  var sq7 = document.getElementById('eight')
+  var sq9 = document.getElementById('nine')
+  if (sq1.classList.contains(`${game.currentPlayer.id}`) && sq4.classList.contains(`${game.currentPlayer.id}`) && sq7.classList.contains(`${game.currentPlayer.id}`)) {
+    console.log('please');
+  } else if (sq2.classList.contains(`${game.currentPlayer.id}`) && sq5.classList.contains(`${game.currentPlayer.id}`) && sq8.classList.contains(`${game.currentPlayer.id}`)) {
+    console.log('please')
+  } else if (sq3.classList.contains(`${game.currentPlayer.id}`) && sq6.classList.contains(`${game.currentPlayer.id}`) && sq9.classList.contains(`${game.currentPlayer.id}`)) {
+    console.log('please')
+  }
+}
+
+function checkDiagonal() {
+  var sq1 = document.getElementById('one');
+  var sq2 = document.getElementById('two');
+  var sq3 = document.getElementById('three');
+  var sq4 = document.getElementById('four')
+  var sq5 = document.getElementById('five')
+  var sq6 = document.getElementById('six')
+  var sq7 = document.getElementById('seven')
+  var sq7 = document.getElementById('eight')
+  var sq9 = document.getElementById('nine')
+  if (sq1.classList.contains(`${game.currentPlayer.id}`) && sq5.classList.contains(`${game.currentPlayer.id}`) && sq9.classList.contains(`${game.currentPlayer.id}`)) {
+    console.log('please');
+    // gameboard.classList.add('disabled');
+    // header.innerText = 'Turkey Wins!'
+    //why is it coming up undefined?
+  } else if (sq3.classList.contains(`${game.currentPlayer.id}`) && sq5.classList.contains(`${game.currentPlayer.id}`) && sq7.classList.contains(`${game.currentPlayer.id}`)) {
+    console.log('please')
+  }
+}
 
 
 function restartGame() {
