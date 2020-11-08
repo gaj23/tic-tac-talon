@@ -26,12 +26,10 @@ class Game {
   }
 
   determineTurn() {
-    if (this.playCount === 0) {
-      this.currentPlayer = this.player2;
-      this.playCount += 1;
-    } else if (this.playCount === 1) {
+    if (this.currentPlayer === this.player2) {
       this.currentPlayer = this.player1;
-      this.playCount = 0;
+    } else {
+      this.currentPlayer = this.player2;
     }
   }
 
