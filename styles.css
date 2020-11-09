@@ -54,7 +54,6 @@ h1 {
 }
 
 .disabled {
-  pointer-events: none;
   cursor: not-allowed;
 }
 
