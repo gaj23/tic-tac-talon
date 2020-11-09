@@ -51,7 +51,9 @@ function checkWinStatus() {
   checkHorizontal(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9);
   checkVertical(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9);
   checkDiagonal(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9);
-  checkTie(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9);
+  if (this.win = false) {
+    checkTie(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9);
+  }
 }
 
 function checkHorizontal(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9) {
@@ -89,16 +91,11 @@ function checkTie(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9) {
 }
 //tried using querySelectorAll, but kept returning undefined on first click? maybe because of placement.
 
-
-// game.updatePlayerScore();
-// updateScoreBoard();
-
 function assessGameStatus() {
   if (game.win === true) {
     game.updatePlayerScore();
     updateScoreBoard();
     header.innerText = `🥇 ${game.currentPlayer.header} Wins! 🥇`;
-    gameboard.classList.add('disabled');
     game.clearBoard();
   } else if (game.win === null) {
     header.innerText = `😓 It's a Tie! 😓`;
@@ -112,6 +109,7 @@ function assessGameStatus() {
 function updateScoreBoard() {
   if (game.currentPlayer.id === game.player1.id) {
     turkeyScore.innerHTML = `${game.player1.wins}`
+    //use what's in local storage, not
   } else if (game.currentPlayer.id === game.player2.id) {
     eagleScore.innerHTML = `${game.player2.wins}`;
   }
