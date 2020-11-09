@@ -13,8 +13,9 @@ class Game {
       header: 'Bald Eagle'
     });
     this.squareIDs = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
-    this.playCount = 0;
     this.currentPlayer = this.player1;
+    this.win = false;
+    this.playCount = 0; //needed?
   }
 
   updateStoredScore() {
@@ -34,13 +35,14 @@ class Game {
   }
 
   checkBoard() {
-    // A way to check the Game’s board data for win conditions
-    // A way to detect when a game is a draw (no one has won
+    //if this.win === false &
+    //if winning scienario or tie scienario occurs
+    // this.win = false
   }
 
   clearBoard() {
-    // A way to reset the Game’s board to begin a new game
-    //use timeout here?
+    //setTimeout()?
+    //window.location.reload();?
   }
 
 }
