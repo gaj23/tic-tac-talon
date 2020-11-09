@@ -11,14 +11,19 @@ function manageGamePlay(event) {
   var square = event.target;
   manageSquares(square);
   checkWinStatus();
+  if (game.win === true) {
+    header.innerText = `${game.currentPlayer.header} Wins!`;
+    gameboard.classList.add('disabled');
+  } else {
+    game.determineTurn();
+    header.innerText = `${game.currentPlayer.header}'s Turn!`
+  }
 }
 
 function manageSquares(square) {
   for (var i = 0; i < game.squareIDs.length; i++) {
     if (square.id === game.squareIDs[i]) {
       toggleToken(square);
-      game.determineTurn();
-      header.innerText = `${game.currentPlayer.header}'s Turn!`
     }
   }
 }
@@ -47,37 +52,29 @@ function checkWinStatus() {
 
 function checkHorizontal(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9) {
   if (sq1.classList.contains(`${game.currentPlayer.id}`) && sq2.classList.contains(`${game.currentPlayer.id}`) && sq3.classList.contains(`${game.currentPlayer.id}`)) {
-    gameboard.classList.add('disabled');
-    header.innerText = `${game.currentPlayer.header} Wins!`;
+    game.win = true;
   } else if (sq4.classList.contains(`${game.currentPlayer.id}`) && sq5.classList.contains(`${game.currentPlayer.id}`) && sq6.classList.contains(`${game.currentPlayer.id}`)) {
-    gameboard.classList.add('disabled');
-    header.innerText = `${game.currentPlayer.header} Wins!`;
+    game.win = true;
   } else if (sq7.classList.contains(`${game.currentPlayer.id}`) && sq8.classList.contains(`${game.currentPlayer.id}`) && sq9.classList.contains(`${game.currentPlayer.id}`)) {
-    gameboard.classList.add('disabled');
-    header.innerText = `${game.currentPlayer.header} Wins!`;
+    game.win = true;
   }
 }
 
 function checkVertical(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9) {
   if (sq1.classList.contains(`${game.currentPlayer.id}`) && sq4.classList.contains(`${game.currentPlayer.id}`) && sq7.classList.contains(`${game.currentPlayer.id}`)) {
-    gameboard.classList.add('disabled');
-    header.innerText = `${game.currentPlayer.header} Wins!`;
+    game.win = true;
   } else if (sq2.classList.contains(`${game.currentPlayer.id}`) && sq5.classList.contains(`${game.currentPlayer.id}`) && sq8.classList.contains(`${game.currentPlayer.id}`)) {
-    gameboard.classList.add('disabled');
-    header.innerText = `${game.currentPlayer.header} Wins!`;
+    game.win = true;
   } else if (sq3.classList.contains(`${game.currentPlayer.id}`) && sq6.classList.contains(`${game.currentPlayer.id}`) && sq9.classList.contains(`${game.currentPlayer.id}`)) {
-    gameboard.classList.add('disabled');
-    header.innerText = `${game.currentPlayer.header} Wins!`;
+    game.win = true;
   }
 }
 
 function checkDiagonal(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9) {
   if (sq1.classList.contains(`${game.currentPlayer.id}`) && sq5.classList.contains(`${game.currentPlayer.id}`) && sq9.classList.contains(`${game.currentPlayer.id}`)) {
-    gameboard.classList.add('disabled');
-    header.innerText = `${game.currentPlayer.header} Wins!`;
+    game.win = true;
   } else if (sq3.classList.contains(`${game.currentPlayer.id}`) && sq5.classList.contains(`${game.currentPlayer.id}`) && sq7.classList.contains(`${game.currentPlayer.id}`)) {
-    gameboard.classList.add('disabled');
-    header.innerText = `${game.currentPlayer.header} Wins!`;
+    game.win = true;
   }
 }
 
