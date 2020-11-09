@@ -11,14 +11,7 @@ function manageGamePlay(event) {
   var square = event.target;
   manageSquares(square);
   checkWinStatus();
-  if (game.win === true) {
-    header.innerText = `🥇 ${game.currentPlayer.header} Wins! 🥇`;
-    gameboard.classList.add('disabled');
-    game.clearBoard();
-  } else {
-    game.determineTurn();
-    header.innerText = `${game.currentPlayer.header}'s Turn!`
-  }
+  assessGameStatus();
 }
 
 function manageSquares(square) {
@@ -36,6 +29,7 @@ function toggleToken(square) {
   square.classList.add('disabled');
 }
 
+//below is fairly bulky, but code works.
 function checkWinStatus() {
   var sq1 = document.getElementById('one');
   var sq2 = document.getElementById('two');
@@ -49,7 +43,7 @@ function checkWinStatus() {
   checkHorizontal(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9);
   checkVertical(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9);
   checkDiagonal(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9);
-  // checkTie();
+  checkTie(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9);
 }
 
 function checkHorizontal(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9) {
@@ -80,13 +74,26 @@ function checkDiagonal(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9) {
   }
 }
 
-// function checkTie() {
-//   debugger
-//   var all = document.querySelectorAll('.square')
-//   if (all.classList.contains(`${game.player1.id}`) || all.classList.contains(`${game.player2.id}`)) {
-//     header.innerHTML = "It's a Tie!"
-//   }
-// }
+function checkTie(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9) {
+  if (sq1.classList.contains('disabled') && sq2.classList.contains('disabled') && sq3.classList.contains('disabled') && sq4.classList.contains('disabled') && sq5.classList.contains('disabled') && sq6.classList.contains('disabled') && sq7.classList.contains('disabled') && sq8.classList.contains('disabled') && sq9.classList.contains('disabled')) {
+    game.win = null;
+  }
+}
+//tried using querySelectorAll, but kept returning undefined on first click? maybe because of placement.
+
+function assessGameStatus() {
+  if (game.win === true) {
+    header.innerText = `🥇 ${game.currentPlayer.header} Wins! 🥇`;
+    gameboard.classList.add('disabled');
+    game.clearBoard();
+  } else if (game.win === null) {
+    header.innerText = `😓 It's a Tie! 😓`;
+    game.clearBoard();
+  } else {
+    game.determineTurn();
+    header.innerText = `${game.currentPlayer.header}'s Turn!`
+  }
+}
 
 function restartGame() {
   alert('Wow! You pushed the button!');
