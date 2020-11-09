@@ -9,9 +9,14 @@ restartButton.addEventListener('click', restartGame);
 
 function manageGamePlay(event) {
   var square = event.target;
-  manageSquares(square);
-  checkWinStatus();
-  assessGameStatus();
+  if (square.classList.contains('disabled')) {
+    event.stopImmediatePropagation();
+    alert('This space is taken! Try somewhere else.')
+  } else {
+    manageSquares(square);
+    checkWinStatus();
+    assessGameStatus();
+  }
 }
 
 function manageSquares(square) {
@@ -23,7 +28,7 @@ function manageSquares(square) {
 }
 
 function toggleToken(square) {
-  square.innerHTML = `<img src="${game.currentPlayer.imageSrc}" alt="${game.currentPlayer.alt}" class="board-image" id="${game.currentPlayer.id}">`;
+  square.innerHTML = `<img src="${game.currentPlayer.imageSrc}" alt="${game.currentPlayer.alt}" class="board-image disabled" id="${game.currentPlayer.id}">`;
   var tokenID = game.currentPlayer.id;
   square.classList.add(tokenID);
   square.classList.add('disabled');
