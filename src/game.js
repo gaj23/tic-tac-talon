@@ -19,16 +19,31 @@ class Game {
   }
 
   updateStoredScore() {
-    //update the score inside of localStorage
+    var turkeyWins = JSON.stringify(this.player1.wins);
+    localStorage.setItem('turkeyScore', turkeyWins);
+    var eagleWins = JSON.stringify(this.player2.wins);
+    localStorage.setItem('eagleScore', eagleWins);
   }
 
   updatePlayerScore() {
     if (this.currentPlayer === this.player1) {
+      var updateTurkey = JSON.parse(localStorage.getItem('turkeyScore'));
+      this.player1.wins = updateTurkey;
       this.player1.wins += 1;
+      var eagle = JSON.parse(localStorage.getItem('eagleScore'));
+      this.player2.wins = eagle;
+      this.updateStoredScore();
     } else {
+      var updateEagle = JSON.parse(localStorage.getItem('eagleScore'));
+      this.player2.wins = updateEagle;
       this.player2.wins += 1;
+      var turkey = JSON.parse(localStorage.getItem('turkeyScore'));
+      this.player1.wins = turkey;
+      this.updateStoredScore();
     }
   }
+
+  //get data from localStorage, reassign that number to player1 & 2 and then increment that "new" number then store that new value back in.
 
   determineTurn() {
     if (this.currentPlayer === this.player2) {
