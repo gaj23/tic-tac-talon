@@ -13,49 +13,49 @@
     <header>
       <h1 id="player-turn">Turkey Starts!</h1>
     </header>
-    <section class="gameboard">
-      <div class="board-rows">
-        <article class="square one" id="one">
-        </article>
-        <article class="square two" id="two">
-        </article>
-        <article class="square three" id="three">
-        </article>
+    <section class="gameboard" aria-label="tic-tac-toe gameboard">
+      <div class="board-rows" aria-label="top row">
+        <div class="square one" id="one" aria-label="top-left square">
+        </div>
+        <div class="square two" id="two" aria-label="top-middle square">
+        </div>
+        <div class="square three" id="three" aria-label="top-right square">
+        </div>
       </div>
-      <div class="board-rows">
-        <article class="square four" id="four">
-        </article>
-        <article class="square five" id="five">
-        </article>
-        <article class="square six" id="six">
-        </article>
+      <div class="board-rows" aria-label="middle row">
+        <div class="square four" id="four" aria-label="left-middle square">
+        </div>
+        <div class="square five" id="five" aria-label="middle-middle square">
+        </div>
+        <div class="square six" id="six" aria-label="right-middle square">
+        </div>
       </div>
-      <div class="board-rows">
-        <article class="square seven" id="seven">
-        </article>
-        <article class="square eight" id="eight">
-        </article>
-        <article class="square nine" id="nine">
-        </article>
+      <div class="board-rows" aria-label="bottom row">
+        <div class="square seven" id="seven" aria-label="bottom-left square">
+        </div>
+        <div class="square eight" id="eight" aria-label="bottom-middle square">
+        </div>
+        <div class="square nine" id="nine" aria-label="bottom-right square">
+        </div>
       </div>
     </section>
-    <button type="button" name="button">⚠️ Restart ⚠️</button>
+    <button type="button" name="button" role="button" aria-pressed="false">⚠️ Restart ⚠️</button>
   </main>
 
   <section class="turkey-display">
     <div><img src="assets/turkey.png" alt="turkey cartoon" class="main-player-image" id="turkey"></div>
-    <article class="score">
+    <div class="score">
       <h2>Score</h2>
       <h3 class="turkey-score">0</h3>
-    </article>
+    </div>
   </section>
 
   <section class="eagle-display">
     <div><img src="assets/bald-eagle.png" alt="bald eagle cartoon" class="main-player-image" id="bald-eagle"></div>
-    <article class="score">
+    <div class="score">
       <h2>Score</h2>
       <h3 class="eagle-score">0</h3>
-    </article>
+    </div>
   </section>
 
 </body>
