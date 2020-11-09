@@ -35,14 +35,13 @@ class Game {
   }
 
   checkBoard() {
-    //if this.win === false &
-    //if winning scienario or tie scienario occurs
-    // this.win = false
+    //Why do I need this?
   }
 
   clearBoard() {
-    //setTimeout()?
-    //window.location.reload();?
+    setTimeout(function() {
+      window.location.reload();
+    }, 3000);
   }
 
 }
