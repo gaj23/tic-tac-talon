@@ -3,6 +3,9 @@ var game = new Game();
 var gameboard = document.querySelector('.gameboard');
 var restartButton = document.querySelector('button');
 var header = document.querySelector('#player-turn');
+//can I move this somewhere else to exist in a fx?, is it being used in only functions nested within each other?
+var eagleScore = document.querySelector('.eagle-score');
+var turkeyScore = document.querySelector('.turkey-score');
 
 gameboard.addEventListener('click', manageGamePlay);
 restartButton.addEventListener('click', restartGame);
@@ -86,8 +89,14 @@ function checkTie(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9) {
 }
 //tried using querySelectorAll, but kept returning undefined on first click? maybe because of placement.
 
+
+// game.updatePlayerScore();
+// updateScoreBoard();
+
 function assessGameStatus() {
   if (game.win === true) {
+    game.updatePlayerScore();
+    updateScoreBoard();
     header.innerText = `🥇 ${game.currentPlayer.header} Wins! 🥇`;
     gameboard.classList.add('disabled');
     game.clearBoard();
@@ -100,11 +109,18 @@ function assessGameStatus() {
   }
 }
 
+function updateScoreBoard() {
+  if (game.currentPlayer.id === game.player1.id) {
+    turkeyScore.innerHTML = `${game.player1.wins}`
+  } else if (game.currentPlayer.id === game.player2.id) {
+    eagleScore.innerHTML = `${game.player2.wins}`;
+  }
+}
+//needs to persist upon refresh
+
 function restartGame() {
   alert('Wow! You pushed the button!');
   localStorage.clear();
-  var eagleScore = document.querySelector('.eagle-score');
-  var turkeyScore = document.querySelector('.turkey-score');
   eagleScore.innerText = '0';
   turkeyScore.innerText = '0';
 }
