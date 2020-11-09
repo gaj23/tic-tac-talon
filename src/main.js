@@ -31,12 +31,6 @@ function toggleToken(square) {
 }
 
 function checkWinStatus() {
-  checkHorizontal();
-  checkVertical();
-  checkDiagonal();
-}
-
-function checkHorizontal() {
   var sq1 = document.getElementById('one');
   var sq2 = document.getElementById('two');
   var sq3 = document.getElementById('three');
@@ -44,58 +38,46 @@ function checkHorizontal() {
   var sq5 = document.getElementById('five')
   var sq6 = document.getElementById('six')
   var sq7 = document.getElementById('seven')
-  var sq7 = document.getElementById('eight')
+  var sq8 = document.getElementById('eight')
   var sq9 = document.getElementById('nine')
+  checkHorizontal(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9);
+  checkVertical(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9);
+  checkDiagonal(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9);
+}
+
+function checkHorizontal(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9) {
   if (sq1.classList.contains(`${game.currentPlayer.id}`) && sq2.classList.contains(`${game.currentPlayer.id}`) && sq3.classList.contains(`${game.currentPlayer.id}`)) {
-    console.log('please');
-    // gameboard.classList.add('disabled');
-    // header.innerText = 'Turkey Wins!'
-    //why is it coming up undefined?
+    gameboard.classList.add('disabled');
+    header.innerText = `${game.currentPlayer.header} Wins!`;
   } else if (sq4.classList.contains(`${game.currentPlayer.id}`) && sq5.classList.contains(`${game.currentPlayer.id}`) && sq6.classList.contains(`${game.currentPlayer.id}`)) {
-    console.log('please')
+    gameboard.classList.add('disabled');
+    header.innerText = `${game.currentPlayer.header} Wins!`;
   } else if (sq7.classList.contains(`${game.currentPlayer.id}`) && sq8.classList.contains(`${game.currentPlayer.id}`) && sq9.classList.contains(`${game.currentPlayer.id}`)) {
-    console.log('please')
+    gameboard.classList.add('disabled');
+    header.innerText = `${game.currentPlayer.header} Wins!`;
   }
-  //currentPlayer is lagging
-  //why can't I put the getElementById in the checkWinStatus?
 }
 
-function checkVertical() {
-  var sq1 = document.getElementById('one');
-  var sq2 = document.getElementById('two');
-  var sq3 = document.getElementById('three');
-  var sq4 = document.getElementById('four')
-  var sq5 = document.getElementById('five')
-  var sq6 = document.getElementById('six')
-  var sq7 = document.getElementById('seven')
-  var sq7 = document.getElementById('eight')
-  var sq9 = document.getElementById('nine')
+function checkVertical(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9) {
   if (sq1.classList.contains(`${game.currentPlayer.id}`) && sq4.classList.contains(`${game.currentPlayer.id}`) && sq7.classList.contains(`${game.currentPlayer.id}`)) {
-    console.log('please');
+    gameboard.classList.add('disabled');
+    header.innerText = `${game.currentPlayer.header} Wins!`;
   } else if (sq2.classList.contains(`${game.currentPlayer.id}`) && sq5.classList.contains(`${game.currentPlayer.id}`) && sq8.classList.contains(`${game.currentPlayer.id}`)) {
-    console.log('please')
+    gameboard.classList.add('disabled');
+    header.innerText = `${game.currentPlayer.header} Wins!`;
   } else if (sq3.classList.contains(`${game.currentPlayer.id}`) && sq6.classList.contains(`${game.currentPlayer.id}`) && sq9.classList.contains(`${game.currentPlayer.id}`)) {
-    console.log('please')
+    gameboard.classList.add('disabled');
+    header.innerText = `${game.currentPlayer.header} Wins!`;
   }
 }
 
-function checkDiagonal() {
-  var sq1 = document.getElementById('one');
-  var sq2 = document.getElementById('two');
-  var sq3 = document.getElementById('three');
-  var sq4 = document.getElementById('four')
-  var sq5 = document.getElementById('five')
-  var sq6 = document.getElementById('six')
-  var sq7 = document.getElementById('seven')
-  var sq7 = document.getElementById('eight')
-  var sq9 = document.getElementById('nine')
+function checkDiagonal(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9) {
   if (sq1.classList.contains(`${game.currentPlayer.id}`) && sq5.classList.contains(`${game.currentPlayer.id}`) && sq9.classList.contains(`${game.currentPlayer.id}`)) {
-    console.log('please');
-    // gameboard.classList.add('disabled');
-    // header.innerText = 'Turkey Wins!'
-    //why is it coming up undefined?
+    gameboard.classList.add('disabled');
+    header.innerText = `${game.currentPlayer.header} Wins!`;
   } else if (sq3.classList.contains(`${game.currentPlayer.id}`) && sq5.classList.contains(`${game.currentPlayer.id}`) && sq7.classList.contains(`${game.currentPlayer.id}`)) {
-    console.log('please')
+    gameboard.classList.add('disabled');
+    header.innerText = `${game.currentPlayer.header} Wins!`;
   }
 }
 
