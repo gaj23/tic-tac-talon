@@ -19,6 +19,8 @@ class Game {
   }
 
   updateStoredScore() {
+    //if currentPlayer @ win === player1.id then increment score (need query selector/separate function that would result in the reassignment)
+    // else, do the same for if player2.id and increment eagle
     // A way to keep track of the data for the game board
   }
 
@@ -35,14 +37,14 @@ class Game {
   }
 
   checkBoard() {
-    //if this.win === false &
-    //if winning scienario or tie scienario occurs
-    // this.win = false
+    //Why do I need this?
   }
 
   clearBoard() {
-    //setTimeout()?
-    //window.location.reload();?
+    setTimeout(function() {
+      window.location.reload();
+    }, 3000);
   }
+  //is this technically DOM manipulation?
 
 }
