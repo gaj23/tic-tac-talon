@@ -9,6 +9,8 @@ var turkeyScore = document.querySelector('.turkey-score');
 
 gameboard.addEventListener('click', manageGamePlay);
 restartButton.addEventListener('click', restartGame);
+window.addEventListener('load', updateScoreBoard);
+//doing this too soon... I want 0s to persist on the first
 
 function manageGamePlay(event) {
   var square = event.target;
@@ -99,6 +101,7 @@ function assessGameStatus() {
     game.clearBoard();
   } else if (game.win === null) {
     header.innerText = `😓 It's a Tie! 😓`;
+    game.updatePlayerScore();
     game.clearBoard();
   } else {
     game.determineTurn();
@@ -107,14 +110,12 @@ function assessGameStatus() {
 }
 
 function updateScoreBoard() {
-  if (game.currentPlayer.id === game.player1.id) {
-    turkeyScore.innerHTML = `${game.player1.wins}`
-    //use what's in local storage, not
-  } else if (game.currentPlayer.id === game.player2.id) {
-    eagleScore.innerHTML = `${game.player2.wins}`;
-  }
+  var updateTurkey = JSON.parse(localStorage.getItem('turkeyScore'));
+  turkeyScore.innerHTML = updateTurkey;
+  var updateEagle = JSON.parse(localStorage.getItem('eagleScore'));
+  eagleScore.innerHTML = updateEagle;
 }
-//needs to persist upon refresh
+// how to prevent a blank where
 
 function restartGame() {
   alert('Wow! You pushed the button!');
