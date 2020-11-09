@@ -12,8 +12,9 @@ function manageGamePlay(event) {
   manageSquares(square);
   checkWinStatus();
   if (game.win === true) {
-    header.innerText = `${game.currentPlayer.header} Wins!`;
+    header.innerText = `🥇 ${game.currentPlayer.header} Wins! 🥇`;
     gameboard.classList.add('disabled');
+    game.clearBoard();
   } else {
     game.determineTurn();
     header.innerText = `${game.currentPlayer.header}'s Turn!`
@@ -48,6 +49,7 @@ function checkWinStatus() {
   checkHorizontal(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9);
   checkVertical(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9);
   checkDiagonal(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9);
+  // checkTie();
 }
 
 function checkHorizontal(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9) {
@@ -78,6 +80,13 @@ function checkDiagonal(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9) {
   }
 }
 
+// function checkTie() {
+//   debugger
+//   var all = document.querySelectorAll('.square')
+//   if (all.classList.contains(`${game.player1.id}`) || all.classList.contains(`${game.player2.id}`)) {
+//     header.innerHTML = "It's a Tie!"
+//   }
+// }
 
 function restartGame() {
   alert('Wow! You pushed the button!');
