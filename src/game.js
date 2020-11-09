@@ -19,13 +19,15 @@ class Game {
   }
 
   updateStoredScore() {
-    //if currentPlayer @ win === player1.id then increment score (need query selector/separate function that would result in the reassignment)
-    // else, do the same for if player2.id and increment eagle
-    // A way to keep track of the data for the game board
+    //update the score inside of localStorage
   }
 
   updatePlayerScore() {
-    // A way to save a winning Game’s board data to the correct player’s wins array
+    if (this.currentPlayer === this.player1) {
+      this.player1.wins += 1;
+    } else {
+      this.player2.wins += 1;
+    }
   }
 
   determineTurn() {
