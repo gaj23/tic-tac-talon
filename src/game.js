@@ -5,42 +5,14 @@ class Game {
       imageSrc: 'assets/turkey.png',
       id: 'turkey',
       alt: 'turkey cartoon',
-      header: 'Turkey',
+      header: 'Turkey'
     });
     this.player2 = new Player({
       imageSrc: 'assets/bald-eagle.png',
       id: 'bald-eagle',
       alt: 'bald eagle cartoon',
-      header: 'Bald Eagle',
+      header: 'Bald Eagle'
     });
-    this.squareIDs = [{
-      id: "one",
-      selectedBy: null
-    }, {
-      id: "two",
-      selectedBy: null
-    }, {
-      id: "three",
-      selectedBy: null
-    }, {
-      id: "four",
-      selectedBy: null
-    }, {
-      id: "five",
-      selectedBy: null
-    }, {
-      id: "six",
-      selectedBy: null
-    }, {
-      id: "seven",
-      selectedBy: null
-    }, {
-      id: "eight",
-      selectedBy: null
-    }, {
-      id: "nine",
-      selectedBy: null
-    }]
     if (this.startingPlayer === this.player1) {
       this.startingPlayer = this.player2;
     } else {
@@ -49,6 +21,34 @@ class Game {
     this.currentPlayer;
     this.win = false;
     this.playCount = 0;
+    this.squareIDs = [{
+      id: 'one',
+      selectedBy: null
+    }, {
+      id: 'two',
+      selectedBy: null
+    }, {
+      id: 'three',
+      selectedBy: null
+    }, {
+      id: 'four',
+      selectedBy: null
+    }, {
+      id: 'five',
+      selectedBy: null
+    }, {
+      id: 'six',
+      selectedBy: null
+    }, {
+      id: 'seven',
+      selectedBy: null
+    }, {
+      id: 'eight',
+      selectedBy: null
+    }, {
+      id: 'nine',
+      selectedBy: null
+    }]
   }
 
   assignStartingPlayer() {
