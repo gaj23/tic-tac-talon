@@ -3,20 +3,15 @@ var game = new Game();
 var gameboard = document.querySelector('.gameboard');
 var restartButton = document.querySelector('button');
 var header = document.querySelector('#player-turn');
-//can I move this somewhere else to exist in a fx?, is it being used in only functions nested within each other?
-var eagleScore = document.querySelector('.eagle-score');
-var turkeyScore = document.querySelector('.turkey-score');
 
 gameboard.addEventListener('click', manageGamePlay);
 restartButton.addEventListener('click', restartGame);
 window.addEventListener('load', updateScoreBoard);
-//doing this too soon... I want 0s to persist on the first
 
 function manageGamePlay(event) {
   var square = event.target;
-  if (square.classList.contains('disabled')) {
+  if (square.classList.contains('board-image')) {
     event.stopImmediatePropagation();
-    alert('This space is taken! Try somewhere else.')
   } else {
     manageSquares(square);
     checkWinStatus();
@@ -33,7 +28,7 @@ function manageSquares(square) {
 }
 
 function toggleToken(square) {
-  square.innerHTML = `<img src="${game.currentPlayer.imageSrc}" alt="${game.currentPlayer.alt}" class="board-image disabled" id="${game.currentPlayer.id}">`;
+  square.innerHTML = `<img src="${game.currentPlayer.imageSrc}" alt="${game.currentPlayer.alt}" class="board-image" id="${game.currentPlayer.id}">`;
   var tokenID = game.currentPlayer.id;
   square.classList.add(tokenID);
   square.classList.add('disabled');
@@ -44,19 +39,22 @@ function checkWinStatus() {
   var sq1 = document.getElementById('one');
   var sq2 = document.getElementById('two');
   var sq3 = document.getElementById('three');
-  var sq4 = document.getElementById('four')
-  var sq5 = document.getElementById('five')
-  var sq6 = document.getElementById('six')
-  var sq7 = document.getElementById('seven')
-  var sq8 = document.getElementById('eight')
-  var sq9 = document.getElementById('nine')
+  var sq4 = document.getElementById('four');
+  var sq5 = document.getElementById('five');
+  var sq6 = document.getElementById('six');
+  var sq7 = document.getElementById('seven');
+  var sq8 = document.getElementById('eight');
+  var sq9 = document.getElementById('nine');
   checkHorizontal(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9);
   checkVertical(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9);
   checkDiagonal(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9);
-  if (this.win = false) {
+  if (game.win === false) {
     checkTie(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9);
   }
 }
+//array, pushing used squares
+//array of each sqares classList?
+//qSA
 
 function checkHorizontal(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9) {
   if (sq1.classList.contains(`${game.currentPlayer.id}`) && sq2.classList.contains(`${game.currentPlayer.id}`) && sq3.classList.contains(`${game.currentPlayer.id}`)) {
@@ -92,17 +90,21 @@ function checkTie(sq1, sq2, sq3, sq4, sq5, sq6, sq7, sq8, sq9) {
   }
 }
 //tried using querySelectorAll, but kept returning undefined on first click? maybe because of placement.
+//includes vs contains
+//bc array like of qSA
+//us a forloop.
 
 function assessGameStatus() {
   if (game.win === true) {
+    gameboard.removeEventListener('click', manageGamePlay);
     game.updatePlayerScore();
     updateScoreBoard();
     header.innerText = `🥇 ${game.currentPlayer.header} Wins! 🥇`;
-    game.clearBoard();
+    clearBoard();
   } else if (game.win === null) {
+    gameboard.removeEventListener('click', manageGamePlay);
     header.innerText = `😓 It's a Tie! 😓`;
-    game.updatePlayerScore();
-    game.clearBoard();
+    clearBoard();
   } else {
     game.determineTurn();
     header.innerText = `${game.currentPlayer.header}'s Turn!`
@@ -110,16 +112,24 @@ function assessGameStatus() {
 }
 
 function updateScoreBoard() {
+  var eagleScore = document.querySelector('.eagle-score');
+  var turkeyScore = document.querySelector('.turkey-score');
   var updateTurkey = JSON.parse(localStorage.getItem('turkeyScore'));
   turkeyScore.innerHTML = updateTurkey;
   var updateEagle = JSON.parse(localStorage.getItem('eagleScore'));
   eagleScore.innerHTML = updateEagle;
 }
-// how to prevent a blank where
+
+function clearBoard() {
+  setTimeout(function() {
+    window.location.reload();
+  }, 3000);
+}
 
 function restartGame() {
   alert('Wow! You pushed the button!');
   localStorage.clear();
-  eagleScore.innerText = '0';
-  turkeyScore.innerText = '0';
+  setTimeout(function() {
+    window.location.reload();
+  }, 300);
 }
