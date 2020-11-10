@@ -29,8 +29,8 @@ function updateScoreBoard() {
   var eagleScore = document.querySelector('.eagle-score');
   var turkeyScore = document.querySelector('.turkey-score');
   var updateTurkey = JSON.parse(localStorage.getItem('turkeyScore'));
-  turkeyScore.innerHTML = updateTurkey;
   var updateEagle = JSON.parse(localStorage.getItem('eagleScore'));
+  turkeyScore.innerHTML = updateTurkey;
   eagleScore.innerHTML = updateEagle;
 }
 
@@ -54,10 +54,10 @@ function manageSquares(square) {
 }
 
 function toggleToken(square) {
-  square.innerHTML = `<img src="${game.currentPlayer.imageSrc}" alt="${game.currentPlayer.alt}" class="board-image disabled" id="${game.currentPlayer.id}">`;
   var tokenID = game.currentPlayer.id;
   square.classList.add(tokenID);
   game.updateSquareIDs(square.id, tokenID);
+  square.innerHTML = `<img src="${game.currentPlayer.imageSrc}" alt="${game.currentPlayer.alt}" class="board-image disabled" id="${game.currentPlayer.id}">`;
 }
 
 function checkWinStatus() {

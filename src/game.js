@@ -94,8 +94,8 @@ class Game {
 
   updateStoredScore() {
     var turkeyWins = JSON.stringify(this.player1.score);
-    localStorage.setItem('turkeyScore', turkeyWins);
     var eagleWins = JSON.stringify(this.player2.score);
+    localStorage.setItem('turkeyScore', turkeyWins);
     localStorage.setItem('eagleScore', eagleWins);
   }
 
