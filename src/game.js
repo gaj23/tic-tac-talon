@@ -1,4 +1,5 @@
 class Game {
+
   constructor() {
     this.player1 = new Player({
       imageSrc: 'assets/turkey.png',
@@ -40,33 +41,27 @@ class Game {
       id: "nine",
       selectedBy: null
     }]
-    this.currentPlayer = this.player1;
+    if (this.startingPlayer === this.player1) {
+      this.startingPlayer = this.player2;
+    } else {
+      this.startingPlayer = this.player1;
+    }
+    this.currentPlayer;
     this.win = false;
     this.playCount = 0;
   }
-  updateStoredScore() {
-    var turkeyWins = JSON.stringify(this.player1.score);
-    localStorage.setItem('turkeyScore', turkeyWins);
-    var eagleWins = JSON.stringify(this.player2.score);
-    localStorage.setItem('eagleScore', eagleWins);
-  }
-  updatePlayerScore() {
-    if (this.currentPlayer === this.player1) {
-      var updateTurkey = JSON.parse(localStorage.getItem('turkeyScore'));
-      this.player1.score = updateTurkey;
-      this.player1.score += 1;
-      var eagle = JSON.parse(localStorage.getItem('eagleScore'));
-      this.player2.score = eagle;
-      this.updateStoredScore();
+
+  assignStartingPlayer() {
+    var stringedCount = localStorage.getItem('playCount');
+    var currentCount = JSON.parse(stringedCount);
+    this.playCount = currentCount;
+    if (this.playCount % 2 === 0) {
+      this.startingPlayer = this.player1;
     } else {
-      var updateEagle = JSON.parse(localStorage.getItem('eagleScore'));
-      this.player2.score = updateEagle;
-      this.player2.score += 1;
-      var turkey = JSON.parse(localStorage.getItem('turkeyScore'));
-      this.player1.score = turkey;
-      this.updateStoredScore();
+      this.startingPlayer = this.player2;
     }
   }
+
   determineTurn() {
     if (this.currentPlayer === this.player2) {
       this.currentPlayer = this.player1;
@@ -74,17 +69,6 @@ class Game {
       this.currentPlayer = this.player2;
     }
   }
-  // updateStoredPlayCount() {
-  //   var playCount = JSON.stringify(this.playCount);
-  //   localStorage.setItem('playCount', playCount);
-  // }
-  //
-  // increasePlayCount() {
-  //   var updateCount = JSON.parse(localStorage.getItem('playCount'));
-  //   this.playCount = updateCount;
-  //   this.playCount += 1;
-  //   this.updateStoredPlayCount();
-  // }
 
   updateSquareIDs(squareID, tokenID) {
     for (var i = 0; i < this.squareIDs.length; i++) {
@@ -93,6 +77,42 @@ class Game {
       }
     }
   }
+
+  updateStoredScore() {
+    var turkeyWins = JSON.stringify(this.player1.score);
+    localStorage.setItem('turkeyScore', turkeyWins);
+    var eagleWins = JSON.stringify(this.player2.score);
+    localStorage.setItem('eagleScore', eagleWins);
+  }
+
+  updatePlayerScore() {
+    if (this.currentPlayer === this.player1) {
+      var updateTurkey = JSON.parse(localStorage.getItem('turkeyScore'));
+      this.player1.score = updateTurkey + 1;
+      var eagle = JSON.parse(localStorage.getItem('eagleScore'));
+      this.player2.score = eagle;
+      this.updateStoredScore();
+    } else {
+      var updateEagle = JSON.parse(localStorage.getItem('eagleScore'));
+      this.player2.score = updateEagle + 1;
+      var turkey = JSON.parse(localStorage.getItem('turkeyScore'));
+      this.player1.score = turkey;
+      this.updateStoredScore();
+    }
+  }
+
+  increasePlayCount() {
+    var stringedCount = localStorage.getItem('playCount');
+    var currentCount = JSON.parse(stringedCount);
+    this.playCount = currentCount + 1;
+    this.updateStoredPlayCount();
+  }
+
+  updateStoredPlayCount() {
+    var playCount = JSON.stringify(this.playCount);
+    localStorage.setItem('playCount', playCount);
+  }
+
   checkHorizontal() {
     if (this.squareIDs[0].selectedBy === this.currentPlayer.id && this.squareIDs[1].selectedBy === this.currentPlayer.id && this.squareIDs[2].selectedBy === this.currentPlayer.id) {
       this.win = true;
@@ -102,6 +122,7 @@ class Game {
       this.win = true;
     }
   }
+
   checkVertical() {
     if (this.squareIDs[0].selectedBy === this.currentPlayer.id && this.squareIDs[3].selectedBy === this.currentPlayer.id && this.squareIDs[6].selectedBy === this.currentPlayer.id) {
       this.win = true;
@@ -111,6 +132,7 @@ class Game {
       this.win = true;
     }
   }
+
   checkDiagonal() {
     if (this.squareIDs[0].selectedBy === this.currentPlayer.id && this.squareIDs[4].selectedBy === this.currentPlayer.id && this.squareIDs[8].selectedBy === this.currentPlayer.id) {
       this.win = true;
@@ -118,6 +140,7 @@ class Game {
       this.win = true;
     }
   }
+
   checkTie() {
     var squareCount = 0;
     for (var i = 0; i < this.squareIDs.length; i++) {
