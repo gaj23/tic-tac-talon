@@ -17,7 +17,7 @@ class Game {
       this.startingPlayer = this.player2;
     } else {
       this.startingPlayer = this.player1;
-    }
+    };
     this.currentPlayer;
     this.win = false;
     this.playCount = 0;
@@ -48,7 +48,7 @@ class Game {
     }, {
       id: 'nine',
       selectedBy: null
-    }]
+    }];
   }
 
   assignStartingPlayer() {
@@ -145,6 +145,7 @@ class Game {
       if (this.squareIDs[i].selectedBy !== null) {
         squareCount += 1;
       }
+
       if (squareCount === 9) this.win = null;
     }
   }

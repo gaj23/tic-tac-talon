@@ -17,10 +17,10 @@ function updatePage() {
 
 function manageStartingPlayer() {
   if (game.startingPlayer === game.player1) {
-    header.innerText = 'Turkey Starts!'
+    header.innerText = 'Turkey Starts!';
     game.currentPlayer = game.player1;
   } else {
-    header.innerText = 'Eagle Starts!'
+    header.innerText = 'Eagle Starts!';
     game.currentPlayer = game.player2;
   }
 }
@@ -76,7 +76,7 @@ function assessGameStatus() {
     runTieScenario();
   } else {
     game.determineTurn();
-    header.innerText = `${game.currentPlayer.header}'s Turn!`
+    header.innerText = `${game.currentPlayer.header}'s Turn!`;
   }
 }
 
