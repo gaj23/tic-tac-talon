@@ -4,28 +4,42 @@ class Game {
       imageSrc: 'assets/turkey.png',
       id: 'turkey',
       alt: 'turkey cartoon',
-      header: 'Turkey'
+      header: 'Turkey',
     });
     this.player2 = new Player({
       imageSrc: 'assets/bald-eagle.png',
       id: 'bald-eagle',
       alt: 'bald eagle cartoon',
-      header: 'Bald Eagle'
+      header: 'Bald Eagle',
     });
     this.squareIDs = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
     this.currentPlayer = this.player1;
     this.win = false;
-    this.playCount = 0; //needed?
   }
 
   updateStoredScore() {
-    //if currentPlayer @ win === player1.id then increment score (need query selector/separate function that would result in the reassignment)
-    // else, do the same for if player2.id and increment eagle
-    // A way to keep track of the data for the game board
+    var turkeyWins = JSON.stringify(this.player1.score);
+    localStorage.setItem('turkeyScore', turkeyWins);
+    var eagleWins = JSON.stringify(this.player2.score);
+    localStorage.setItem('eagleScore', eagleWins);
   }
 
   updatePlayerScore() {
-    // A way to save a winning Game’s board data to the correct player’s wins array
+    if (this.currentPlayer === this.player1) {
+      var updateTurkey = JSON.parse(localStorage.getItem('turkeyScore'));
+      this.player1.score = updateTurkey;
+      this.player1.score += 1;
+      var eagle = JSON.parse(localStorage.getItem('eagleScore'));
+      this.player2.score = eagle;
+      this.updateStoredScore();
+    } else {
+      var updateEagle = JSON.parse(localStorage.getItem('eagleScore'));
+      this.player2.score = updateEagle;
+      this.player2.score += 1;
+      var turkey = JSON.parse(localStorage.getItem('turkeyScore'));
+      this.player1.score = turkey;
+      this.updateStoredScore();
+    }
   }
 
   determineTurn() {
@@ -35,16 +49,4 @@ class Game {
       this.currentPlayer = this.player2;
     }
   }
-
-  checkBoard() {
-    //Why do I need this?
-  }
-
-  clearBoard() {
-    setTimeout(function() {
-      window.location.reload();
-    }, 3000);
-  }
-  //is this technically DOM manipulation?
-
 }
