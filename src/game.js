@@ -78,27 +78,25 @@ class Game {
     }
   }
 
+  updatePlayerScore() {
+    var updateTurkey = JSON.parse(localStorage.getItem('turkeyScore'));
+    var updateEagle = JSON.parse(localStorage.getItem('eagleScore'));
+    if (this.currentPlayer === this.player1) {
+      this.player1.score = updateTurkey + 1;
+      this.player2.score = updateEagle;
+      this.updateStoredScore();
+    } else {
+      this.player2.score = updateEagle + 1;
+      this.player1.score = updateTurkey;
+      this.updateStoredScore();
+    }
+  }
+
   updateStoredScore() {
     var turkeyWins = JSON.stringify(this.player1.score);
     localStorage.setItem('turkeyScore', turkeyWins);
     var eagleWins = JSON.stringify(this.player2.score);
     localStorage.setItem('eagleScore', eagleWins);
-  }
-
-  updatePlayerScore() {
-    if (this.currentPlayer === this.player1) {
-      var updateTurkey = JSON.parse(localStorage.getItem('turkeyScore'));
-      this.player1.score = updateTurkey + 1;
-      var eagle = JSON.parse(localStorage.getItem('eagleScore'));
-      this.player2.score = eagle;
-      this.updateStoredScore();
-    } else {
-      var updateEagle = JSON.parse(localStorage.getItem('eagleScore'));
-      this.player2.score = updateEagle + 1;
-      var turkey = JSON.parse(localStorage.getItem('turkeyScore'));
-      this.player1.score = turkey;
-      this.updateStoredScore();
-    }
   }
 
   increasePlayCount() {
