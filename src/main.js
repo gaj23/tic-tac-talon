@@ -4,9 +4,35 @@ var gameboard = document.querySelector('.gameboard');
 var restartButton = document.querySelector('button');
 var header = document.querySelector('#player-turn');
 
+window.addEventListener('load', updatePage);
 gameboard.addEventListener('click', manageGamePlay);
 restartButton.addEventListener('click', restartGame);
-window.addEventListener('load', updateScoreBoard);
+
+
+function updatePage() {
+  game.assignStartingPlayer();
+  manageStartingPlayer();
+  updateScoreBoard();
+}
+
+function manageStartingPlayer() {
+  if (game.startingPlayer === game.player1) {
+    header.innerText = "Turkey Starts!"
+    game.currentPlayer = game.player1;
+  } else {
+    header.innerText = "Eagle Starts!"
+    game.currentPlayer = game.player2;
+  }
+}
+
+function updateScoreBoard() {
+  var eagleScore = document.querySelector('.eagle-score');
+  var turkeyScore = document.querySelector('.turkey-score');
+  var updateTurkey = JSON.parse(localStorage.getItem('turkeyScore'));
+  turkeyScore.innerHTML = updateTurkey;
+  var updateEagle = JSON.parse(localStorage.getItem('eagleScore'));
+  eagleScore.innerHTML = updateEagle;
+}
 
 function manageGamePlay(event) {
   var square = event.target;
@@ -28,10 +54,9 @@ function manageSquares(square) {
 }
 
 function toggleToken(square) {
-  square.innerHTML = `<img src="${game.currentPlayer.imageSrc}" alt="${game.currentPlayer.alt}" class="board-image" id="${game.currentPlayer.id}">`;
+  square.innerHTML = `<img src="${game.currentPlayer.imageSrc}" alt="${game.currentPlayer.alt}" class="board-image disabled" id="${game.currentPlayer.id}">`;
   var tokenID = game.currentPlayer.id;
   square.classList.add(tokenID);
-  square.classList.add('disabled');
   game.updateSquareIDs(square.id, tokenID);
 }
 
@@ -46,37 +71,30 @@ function checkWinStatus() {
 
 function assessGameStatus() {
   if (game.win === true) {
-    gameboard.removeEventListener('click', manageGamePlay);
-    game.updatePlayerScore();
-    // game.increasePlayCount();
-    updateScoreBoard();
-    header.innerText = `🥇 ${game.currentPlayer.header} Wins! 🥇`;
-    clearBoard();
+    runWinScenario();
   } else if (game.win === null) {
-    gameboard.removeEventListener('click', manageGamePlay);
-    // game.increasePlayCount();
-    header.innerText = `😓 It's a Tie! 😓`;
-    clearBoard();
+    runTieScenario();
   } else {
     game.determineTurn();
     header.innerText = `${game.currentPlayer.header}'s Turn!`
   }
 }
 
-function updateScoreBoard() {
-  var eagleScore = document.querySelector('.eagle-score');
-  var turkeyScore = document.querySelector('.turkey-score');
-  // if (game.playCount === 0) {
-  //   turkeyScore.innerHTML = "0";
-  //   eagleScore.innerHTML = "0";
-  // } else {
-  var updateTurkey = JSON.parse(localStorage.getItem('turkeyScore'));
-  turkeyScore.innerHTML = updateTurkey;
-  var updateEagle = JSON.parse(localStorage.getItem('eagleScore'));
-  eagleScore.innerHTML = updateEagle;
-  // }
+function runWinScenario() {
+  gameboard.removeEventListener('click', manageGamePlay);
+  game.increasePlayCount();
+  game.updatePlayerScore();
+  updateScoreBoard();
+  header.innerText = `🥇 ${game.currentPlayer.header} Wins! 🥇`;
+  clearBoard();
 }
-//should I separate out scoreBoard count and controlling the innerHTML if 0?
+
+function runTieScenario() {
+  gameboard.removeEventListener('click', manageGamePlay);
+  game.increasePlayCount();
+  header.innerText = `😓 It's a Tie! 😓`;
+  clearBoard();
+}
 
 function clearBoard() {
   setTimeout(function() {
