@@ -17,10 +17,10 @@ function updatePage() {
 
 function manageStartingPlayer() {
   if (game.startingPlayer === game.player1) {
-    header.innerText = "Turkey Starts!"
+    header.innerText = 'Turkey Starts!'
     game.currentPlayer = game.player1;
   } else {
-    header.innerText = "Eagle Starts!"
+    header.innerText = 'Eagle Starts!'
     game.currentPlayer = game.player2;
   }
 }
@@ -103,7 +103,7 @@ function clearBoard() {
 }
 
 function restartGame() {
-  alert('Wow! You pushed the button!');
+  alert('Wow! You pushed the button! The score will now clear.')
   localStorage.clear();
   setTimeout(function() {
     window.location.reload();
