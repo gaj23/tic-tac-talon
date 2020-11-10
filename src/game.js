@@ -93,10 +93,8 @@ class Game {
   }
 
   updateStoredScore() {
-    var turkeyWins = JSON.stringify(this.player1.score);
-    var eagleWins = JSON.stringify(this.player2.score);
-    localStorage.setItem('turkeyScore', turkeyWins);
-    localStorage.setItem('eagleScore', eagleWins);
+    this.player1.saveWinsToStorage();
+    this.player2.saveWinsToStorage();
   }
 
   increasePlayCount() {

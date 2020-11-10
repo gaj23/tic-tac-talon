@@ -1,4 +1,5 @@
 class Player {
+
   constructor(playerObj) {
     this.imageSrc = playerObj.imageSrc;
     this.id = playerObj.id;
@@ -6,10 +7,12 @@ class Player {
     this.header = playerObj.header;
     this.score = 0;
   }
-  saveWinsToStorage() {
 
+  saveWinsToStorage() {
+    localStorage.setItem(this.header, JSON.stringify(this.score))
   }
   retrieveWinsFromStorage() {
 
   }
+
 }
