@@ -13,10 +13,11 @@ class Player {
   }
 
   retrieveWinsFromStorage() {
-    return this.score = JSON.parse(localStorage.getItem(this.header));
+    this.score = JSON.parse(localStorage.getItem(this.header));
     if (this.score === null || this.score === undefined) {
       this.score = 0;
     }
+    return this.score
   }
 
 }
