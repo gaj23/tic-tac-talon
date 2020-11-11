@@ -13,7 +13,7 @@
     <header>
       <h1 id="player-turn">Turkey Starts!</h1>
     </header>
-    <section class="gameboard" aria-label="tic-tac-toe gameboard">
+    <section class="gameboard" id="gameboard" aria-label="tic-tac-toe gameboard">
       <div class="board-rows" aria-label="top row">
         <div class="square one" id="one" aria-label="top-left square">
         </div>
@@ -41,23 +41,20 @@
     </section>
     <button type="button" name="button" role="button" aria-pressed="false">⚠️ Restart ⚠️</button>
   </main>
-
   <section class="turkey-display">
     <div><img src="assets/turkey.png" alt="turkey cartoon" class="main-player-image" id="turkey"></div>
     <div class="score">
       <h2>Score</h2>
-      <h3 class="turkey-score"></h3>
+      <h3 class="turkey-score">0</h3>
     </div>
   </section>
-
   <section class="eagle-display">
     <div><img src="assets/bald-eagle.png" alt="bald eagle cartoon" class="main-player-image" id="bald-eagle"></div>
     <div class="score">
       <h2>Score</h2>
-      <h3 class="eagle-score"></h3>
+      <h3 class="eagle-score">0</h3>
     </div>
   </section>
-
 </body>
 <script src="src/player.js" type="text/javascript"></script>
 <script src="src/game.js" type="text/javascript"></script>
