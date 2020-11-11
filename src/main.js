@@ -1,6 +1,7 @@
 var game = new Game();
 
 var gameboard = document.querySelector('.gameboard');
+// var gameboard = document.querySelectorAll('square')
 var restartButton = document.querySelector('button');
 var header = document.querySelector('#player-turn');
 
@@ -36,7 +37,7 @@ function updateScoreBoard() {
 
 function manageGamePlay(event) {
   var square = event.target;
-  if (square.classList.contains('board-image')) {
+  if (square.classList.contains('disabled')) {
     event.stopImmediatePropagation();
   } else {
     manageSquares(square);
@@ -57,6 +58,7 @@ function toggleToken(square) {
   var tokenID = game.currentPlayer.id;
   square.classList.add(tokenID);
   game.updateSquareIDs(square.id, tokenID);
+  square.classList.add('disabled')
   square.innerHTML = `<img src="${game.currentPlayer.imageSrc}" alt="${game.currentPlayer.alt}" class="board-image disabled" id="${game.currentPlayer.id}">`;
 }
 
