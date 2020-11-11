@@ -6,7 +6,6 @@
 
 body {
   display: flex;
-  justify-content: space-between;
   height: 100vh;
 }
 
@@ -25,24 +24,16 @@ h1 {
 
 /* ~~~~~Playable Area~~~~~ */
 .gameboard {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
   margin-top: 1em;
   border: .2em solid #000000;
 }
 
 .board-rows {
   display: flex;
-  flex-flow: row;
   justify-content: center;
 }
 
 .square {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: .5em;
   height: 10em;
   width: 10em;
@@ -109,7 +100,6 @@ button:hover {
 }
 
 .eagle-display {
-  order: 3;
   border-left: .2em solid #000000;
 }
 
