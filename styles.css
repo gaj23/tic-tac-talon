@@ -23,7 +23,7 @@ h1 {
   font-size: 3em;
 }
 
-/* how can I utilize flex-wrap? */
+/* ~~~~~Playable Area~~~~~ */
 .gameboard {
   display: flex;
   flex-flow: column;
@@ -74,9 +74,10 @@ h1 {
 }
 
 .board-image {
-  width: 95%;
+  width: 100%;
 }
 
+/* ~~~~~Button Area~~~~~ */
 button {
   margin-top: 2em;
   padding: .8em;
@@ -93,6 +94,7 @@ button:hover {
   border-color: #fcba03;
 }
 
+/* ~~~~~Scoring Area~~~~~ */
 .eagle-display,
 .turkey-display {
   display: flex;
@@ -130,5 +132,9 @@ button:hover {
 
 h3 {
   font-size: 2em;
+  /* color: #2B2B2B; */
+  background: #BBA7FF;
+  border: .1em solid #000000;
+  height: 1.4em;
   margin: .1em;
 }
