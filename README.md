@@ -13,13 +13,13 @@ To view and interact with this application please clone down and view from your 
 To clone, please copy and paste the following into your terminal: `git clone git@github.com:gaj23/bird-is-the-word.git`.
 No other software is necessary. Please check if your preferred browser is up to date to provide as smooth as possible interactions.  
 
-Starting Board  
+### Starting Board  
 <img src="https://user-images.githubusercontent.com/68332132/98760970-6c163180-23a2-11eb-8388-aedecc233921.png" alt="starting gameboard appearance">
 
-Winning Screen  
+### Winning Screen  
 <img src="https://user-images.githubusercontent.com/68332132/98761214-f78fc280-23a2-11eb-9f9e-50d967c5b8d5.png" alt="example of winning scenario">
 
-Tie Screen  
+### Tie Screen  
 <img src="https://user-images.githubusercontent.com/68332132/98761204-f199e180-23a2-11eb-9fa1-835f65f4127d.png" alt="example of a tie scenario">
 
 
@@ -46,10 +46,10 @@ Originally, I had planned to utilize github's kanbans as I have in the past when
 <img src="https://user-images.githubusercontent.com/68332132/98760704-d11d5780-23a1-11eb-865b-d4c58141f5bf.png" alt="daily task breakdown continued">
 </details>
 
-###General
+### General
 I'm incredibly proud of the work there in. While simple in appearance, I feel confident in the code I wrote. I spent significant portions of my time considering how and where to refactor my code. This is something that I struggled to address in previous projects, but faced it head on. In the face of bugs, while frustrated, I felt comfortable that I could sniff them out and squash them. I truly hope in this most updated version (as of 11/10) there are no bugs that will affect user game play.
 
-###Future Iterations & Second-Looks
+### Future Iterations & Second-Looks
 #### CSS & HTML
 - I would like to have the bird calls to be incorporated into the win conditions!
   - This would require research on how to manipulate audio into a file and the necessary syntax to call it automatically upon win declaration.
@@ -63,7 +63,7 @@ I'm incredibly proud of the work there in. While simple in appearance, I feel co
 - I would like to incorporate an array of fun facts about each bird and upon a win of that bird, one of those facts are displayed on a popup on screen.
   - I would need to research the different types of popups that can occur on the scree because I'm interested in something other than an alert, perhaps a timed event.
 
-##Contributions & Thanks
+## Contributions & Thanks
 Additional thanks to all who offered me technical and emotional support during the completion of this project. I am indebted to their guidance and input: Casey Dallavalle(@cbdallavalle), Jeannie Evans(@jmevans0211), and Josh Antonson(@jantonso).
 
 If you are interested in contributing please:
@@ -75,7 +75,7 @@ If you are interested in contributing please:
 - wait for our reply
 Thank you in advance for your input!
 
-###Contact
+### Contact
 Please follow me on github or to reach out about this or any other projects: Gabrielle Joyce @gaj23  
 
 Thank you!
