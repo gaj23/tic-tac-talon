@@ -1,14 +1,12 @@
 var game = new Game();
 
-var gameboard = document.querySelector('.gameboard');
-// var gameboard = document.querySelectorAll('square')
+var gameboard = document.querySelector('#gameboard');
 var restartButton = document.querySelector('button');
 var header = document.querySelector('#player-turn');
 
 window.addEventListener('load', updatePage);
 gameboard.addEventListener('click', manageGamePlay);
 restartButton.addEventListener('click', restartGame);
-
 
 function updatePage() {
   game.assignStartingPlayer();

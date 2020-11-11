@@ -6,7 +6,6 @@
 
 body {
   display: flex;
-  justify-content: space-between;
   height: 100vh;
 }
 
@@ -23,26 +22,18 @@ h1 {
   font-size: 3em;
 }
 
-/* how can I utilize flex-wrap? */
+/* ~~~~~Playable Area~~~~~ */
 .gameboard {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
   margin-top: 1em;
   border: .2em solid #000000;
 }
 
 .board-rows {
   display: flex;
-  flex-flow: row;
   justify-content: center;
 }
 
 .square {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: .5em;
   height: 10em;
   width: 10em;
@@ -74,25 +65,27 @@ h1 {
 }
 
 .board-image {
-  width: 95%;
+  width: 100%;
 }
 
+/* ~~~~~Button Area~~~~~ */
 button {
   margin-top: 2em;
   padding: .8em;
   width: 12em;
   border-radius: .5em;
-  color: white;
   font-size: 1.2em;
+  color: white;
   background-color: #2B2B2B;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #808080;
+  background-color: #000000;
   border-color: #fcba03;
 }
 
+/* ~~~~~Scoring Area~~~~~ */
 .eagle-display,
 .turkey-display {
   display: flex;
@@ -107,7 +100,6 @@ button:hover {
 }
 
 .eagle-display {
-  order: 3;
   border-left: .2em solid #000000;
 }
 
@@ -130,5 +122,8 @@ button:hover {
 
 h3 {
   font-size: 2em;
+  background: #BBA7FF;
+  border: .1em solid #000000;
+  height: 1.4em;
   margin: .1em;
 }
