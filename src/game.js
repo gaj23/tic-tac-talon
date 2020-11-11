@@ -79,15 +79,13 @@ class Game {
   }
 
   updatePlayerScore() {
-    var updateTurkey = JSON.parse(localStorage.getItem('turkeyScore'));
-    var updateEagle = JSON.parse(localStorage.getItem('eagleScore'));
+    this.player1.retrieveWinsFromStorage();
+    this.player2.retrieveWinsFromStorage();
     if (this.currentPlayer === this.player1) {
-      this.player1.score = updateTurkey + 1;
-      this.player2.score = updateEagle;
+      this.player1.score += 1;
       this.updateStoredScore();
     } else {
-      this.player2.score = updateEagle + 1;
-      this.player1.score = updateTurkey;
+      this.player2.score += 1;
       this.updateStoredScore();
     }
   }

@@ -29,8 +29,8 @@ function manageStartingPlayer() {
 function updateScoreBoard() {
   var eagleScore = document.querySelector('.eagle-score');
   var turkeyScore = document.querySelector('.turkey-score');
-  var updateTurkey = JSON.parse(localStorage.getItem('turkeyScore'));
-  var updateEagle = JSON.parse(localStorage.getItem('eagleScore'));
+  var updateTurkey = game.player1.retrieveWinsFromStorage();
+  var updateEagle = game.player2.retrieveWinsFromStorage();
   turkeyScore.innerHTML = updateTurkey;
   eagleScore.innerHTML = updateEagle;
 }

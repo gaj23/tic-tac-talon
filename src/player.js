@@ -9,10 +9,14 @@ class Player {
   }
 
   saveWinsToStorage() {
-    localStorage.setItem(this.header, JSON.stringify(this.score))
+    localStorage.setItem(this.header, JSON.stringify(this.score));
   }
-  retrieveWinsFromStorage() {
 
+  retrieveWinsFromStorage() {
+    return this.score = JSON.parse(localStorage.getItem(this.header));
+    if (this.score === null || this.score === undefined) {
+      this.score = 0;
+    }
   }
 
 }
