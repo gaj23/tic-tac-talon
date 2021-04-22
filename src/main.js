@@ -104,6 +104,7 @@ function clearBoard() {
 
 function restartGame() {
   alert('Wow! You pushed the button! The score will now clear.')
+  // make alert a modal instead
   localStorage.clear();
   setTimeout(function() {
     window.location.reload();
