@@ -1,0 +1,25 @@
+{
+  "name": "bird-is-the-word",
+  "version": "1.0.0",
+  "description": "Did you know that Benjamin Franklin originally proposed the United States' national bird to be the turkey? Now is your chance to pit the Turkey and the Bald Eagle against each other in an interactive game of tic-tac-toe!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src/**/*.js --ignore-pattern node_modules/ --ignore-pattern src/serviceWorker.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaj23/bird-is-the-word.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gaj23/bird-is-the-word/issues"
+  },
+  "homepage": "https://github.com/gaj23/bird-is-the-word#readme",
+  "devDependencies": {
+    "eslint": "^7.14.0",
+    "eslint-plugin-react": "^7.21.5"
+  }
+}
