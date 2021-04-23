@@ -1,5 +1,4 @@
 class Player {
-
   constructor(playerObj) {
     this.imageSrc = playerObj.imageSrc;
     this.id = playerObj.id;
@@ -19,5 +18,4 @@ class Player {
     }
     return this.score
   }
-
 }

@@ -1,0 +1,59 @@
+stages:
+  - install
+  - build
+  - quality
+  - test
+
+install:
+   stage: install
+   script:
+      - npm install
+   artifacts:
+      name: "artifacts"
+      untracked: true
+      expire_in: 30 mins
+      paths:
+        - .npm/
+        - node_modules/
+
+linting:
+   stage: quality
+   script:
+      - npm run lint
+
+build:
+   stage: build
+   script:
+      - CI=false npm run build
+   artifacts:
+      paths:
+         - build
+      expire_in: 30 mins
+   dependencies:
+      - install
+
+test:unit:
+   stage: test
+   script:
+      -  npm run test:coverage
+   dependencies:
+      - install
+   coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
+
+test:e2e:
+   stage: test
+   image: cypress/browsers:chrome69
+   dependencies:
+      - install
+      - build
+   script:
+      - npm run e2e:ci
+   artifacts:
+      paths:
+         - cypress/screenshots
+         - cypress/videos
+      expire_in: 1 day
+
+cache:
+  paths:
+    - node_modules/

@@ -1,5 +1,4 @@
 class Game {
-
   constructor() {
     this.player1 = new Player({
       imageSrc: 'assets/turkey.png',
@@ -17,7 +16,7 @@ class Game {
       this.startingPlayer = this.player2;
     } else {
       this.startingPlayer = this.player1;
-    };
+    }
     this.currentPlayer;
     this.win = false;
     this.playCount = 0;
@@ -142,7 +141,9 @@ class Game {
         squareCount += 1;
       }
 
-      if (squareCount === 9) this.win = null;
+      if (squareCount === 9) {
+        this.win = null;
+      }
     }
   }
 }
