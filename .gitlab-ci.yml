@@ -53,3 +53,7 @@ test:e2e:
          - cypress/screenshots
          - cypress/videos
       expire_in: 1 day
+
+cache:
+  paths:
+    - node_modules/
